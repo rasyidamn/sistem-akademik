@@ -8,7 +8,7 @@ import MainLayout from "./layout/MainLayout.tsx";
 const router = createBrowserRouter(
   [
     {
-      path: "/",
+      path: "/dashboard",
       element: <MainLayout />
     },
     {
