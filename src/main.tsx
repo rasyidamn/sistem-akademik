@@ -1,14 +1,30 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.tsx";
-import { BrowserRouter } from "react-router";
+import {  createBrowserRouter, RouterProvider } from "react-router";
+import LoginPage from "./pages/LoginPage.tsx";
+import MainLayout from "./layout/MainLayout.tsx";
+
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <MainLayout />
+    },
+    {
+      path: "/login",
+      element: <LoginPage />
+    }
+  ],
+  {
+    basename: "/sistem-akademik"
+  }
+  
+)
 
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="/sistem-akademik/">
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </StrictMode>
 );
